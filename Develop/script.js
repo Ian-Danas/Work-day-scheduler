@@ -47,6 +47,7 @@ $(function () {
       console.log(hourEl)
       
     }
+    
   }
    setInterval(updatePlannerColor,1000)
 
