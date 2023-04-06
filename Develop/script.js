@@ -11,6 +11,7 @@ $(function () {
   // useful when saving the description in local storage?
   var saveIcon = $('.fa-save')
   // var saveBtn = $('.saveBtn')
+  //var hourDiv = $('.time-block')
 
   saveIcon.on('click',function(event){
     var parentDiv = event.target.parentElement
@@ -20,6 +21,15 @@ $(function () {
     event2Save = parentDiv.children('textarea').val()
     localStorage.setItem(hourNum,event2Save)
   })
+  //   hourDiv.on('click',function(event){
+  //     console.log('clicked on div')
+  //   if (event.attr('id') == 'saveBtn'){
+  //     var textArea = $('.description')
+  //     event2Save = textArea.val()
+  //     console.log(event2Save)
+  //     localStorage.setItem(hourNum,event2Save)
+  //   }
+  // })
 
   // saveBtn.on('click',function(event){
   //   console.log('Pressed save button')
@@ -60,14 +70,13 @@ $(function () {
     }
 
   }
-   setInterval(updatePlannerColor,1000)
+   setInterval(updatePlannerColor,3000)
 
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 function updatePlannerText(){
-
   for (let i = 9; i <= 17; i++) {
     var currentTime = dayjs().hour()
     console.log(currentTime)
@@ -89,13 +98,3 @@ updatePlannerText()
 });
 
 
-
-// function saveEvent(event){
-//   var parentDiv = event.target.parentElement
-//   parentDiv = $(parentDiv)
-//   var hourNum  = parentDiv.attr('id')
-//   console.log(hourNum)
-//   event2Save = parentDiv.children('textarea').val()
-//   console.log(event2Save)
-//   localStorage.setItem(hourNum,event2Save)
-// }
