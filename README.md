@@ -1,7 +1,7 @@
 # Work-day-scheduler
 ## Description
 
-This project provides a website schedule a day of work. The user will be able to track their tasks for a typical work day of 9 to 5. There are some features to save events and easily tell what day it is and track which events have been are currently happening and are in the future.
+This project provides a website schedule a day of work. The user will be able to track their tasks for a typical work day of 9 to 5. There are some features to save events,easily tell what day it is. It also provides color to track which events have happend, are currently happening, and are in the future.
 
 ## Installation
 N/A
