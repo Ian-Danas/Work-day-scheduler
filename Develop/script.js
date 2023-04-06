@@ -9,37 +9,14 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  var saveIcon = $('.fa-save')
-  // var saveBtn = $('.saveBtn')
-  //var hourDiv = $('.time-block')
+  var saveBtn = $('.saveBtn')
 
-  saveIcon.on('click',function(event){
-    var parentDiv = event.target.parentElement
-    parentDiv = parentDiv.parentElement
-    parentDiv = $(parentDiv)
-    var hourNum  = parentDiv.attr('id')
-    event2Save = parentDiv.children('textarea').val()
+  saveBtn.on('click',function(event){
+    var event2Save = $(this).siblings('.description').val()
+    var hourNum  = $(this).parent().attr('id')
     localStorage.setItem(hourNum,event2Save)
   })
-  //   hourDiv.on('click',function(event){
-  //     console.log('clicked on div')
-  //   if (event.attr('id') == 'saveBtn'){
-  //     var textArea = $('.description')
-  //     event2Save = textArea.val()
-  //     console.log(event2Save)
-  //     localStorage.setItem(hourNum,event2Save)
-  //   }
-  // })
 
-  // saveBtn.on('click',function(event){
-  //   console.log('Pressed save button')
-  //   var parentDiv = event.target.parentElement
-  //   parentDiv = $(parentDiv)
-  //   var hourNum  = parentDiv.attr('id')
-  //   event2Save = parentDiv.children('textarea').val()
-  //   console.log('text in area',event2Save)
-  //   localStorage.setItem(hourNum,event2Save)
-  // })
   //
   // Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -70,7 +47,7 @@ $(function () {
     }
 
   }
-   setInterval(updatePlannerColor,3000)
+   setInterval(updatePlannerColor,60000)
 
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
@@ -79,10 +56,8 @@ $(function () {
 function updatePlannerText(){
   for (let i = 9; i <= 17; i++) {
     var currentTime = dayjs().hour()
-    console.log(currentTime)
     var hour = 'hour-' + i
     var hourEl = $('#' +hour)
-    console.log(hourEl)
     var plannerText = hourEl.children('.description')
     var storedVal = localStorage.getItem(hour)||''
     plannerText.text(storedVal)
